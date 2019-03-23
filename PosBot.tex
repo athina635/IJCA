@@ -13,6 +13,7 @@
 \usepackage{pdfpages}
 \usepackage{pgfplots}
 \usepackage{verbatim}
+\usepackage{dirtytalk}
 
 \usepackage[numbers,sort&compress]{natbib}% Citation support using natbib.sty
 \bibpunct[, ]{[}{]}{,}{n}{,}{,}% Citation support using natbib.sty
@@ -273,6 +274,22 @@ End
 \end{tikzpicture}
 \caption{The diagram showed the ordered steps for running an AIS algorithm based on clonal selection algorithm (CLONALG) }
 \end{figure}
+
+\subsection{Particle Swarm Optimization}
+Recently, a considerable literature has grown up around the theme of swarm intelligence which plays an important role in addressing the issue of computational systems inspired its techniques from nature collective intelligence such us fish schooling, ants, flocks of birds to mention a few.
+The algorithm run in a multi-dimensional space where all particles try to locate the optimum. By first, a set of a collection will be set to represent whole particles in the swarm randomly positioned in the working space, Each particle can move to find the potential optimum pathway according to the personal position of the particle (Pbest)  and the global position (Gbest) of all the swarm. In addition, another factor will influent this changing in the position, it's velocity. The change in velocity is measured with the equation (2):
+
+\begin{equation}
+v_{i}(t+1) = v_{i}(t) + c_{1}r_{1}(p_{i}^{Pbest}-p_{i}(t))  + c_{2}r_{2}(p_{Gbest}-p_{i}(t))
+\end{equation}
+
+Where $v_{i}(t+1)$ is the next velocity of the particle\textbf{\say{i}}, $c_{1}$ and $c_{2}$ represent the weight of Cognitive component and the Social component  for the personal best and global best successively. $p_{i}(t)$ is the position \textbf{\say{i}} of the particle \textbf{\say{p}} at time \textbf{\say{t}}. $p_{i}^{Pbest}$ is the best known position for the $i^{th}$ particle. $p_{Gbest}$ is the best known position for the whole swarm. $r_{1}$ and $r_{2}$ are random variables in the range [0, 1]. In the other side, the position for each particle  will be changed according to equation (3):
+
+\begin{equation}
+p_{i}(t+1) = p_{i}(t) + v_{i}(t)
+\end{equation}
+
+Where $p_{i}(t+1)$ represent the next position of the particle i.$p_{i}(t)$ is the current position of the particle i at time t and $v_{i}(t)$ is the velocity factor.
 
 \section{AisBot: the Canquer Bot}
 
