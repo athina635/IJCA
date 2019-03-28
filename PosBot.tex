@@ -40,7 +40,7 @@
 
 \articletype{ARTICLE TEMPLATE}% Specify the article type or omit as appropriate
 
-\title{Article Title}
+\title{A comparison of two computational methods in order to improve the behavior of a Planet Wars game agent}
 
 \author{
 \name{A.~N. Author\textsuperscript{a}\thanks{CONTACT A.~N. Author. Email: latex.helpdesk@tandf.co.uk} and John Smith\textsuperscript{b}}
@@ -50,7 +50,7 @@
 \maketitle
 
 \begin{abstract}
-Abstract
+Inherited by the real-time aspect, one of the hardest tasks in RTS games is the designing of the agents(Bots). In this work, we present a comparison of three computational methods that will be applied to improve the behavior of the bot during the game. The agent will react under a game called planet wars, which in this game, the bot need a set of parameters that will determine the actions during the playing match. In the other hand, the two approaches presented in this study will try to tune the set of parameters the Bot will be based on in the aim of improving the general behavior.
 \end{abstract}
 
 \begin{keywords}
@@ -61,28 +61,22 @@ games, planet wars, artificial immune system, particle swarm optimization.
 
 \section{Introduction}
 % no \IEEEPARstart
-Strategy video game is to make a decision under a set of units during the game. A real-time Strategy game is a sub-genre of strategy game, where players move (control multiple structures) in real time. Moreover, RTS game is a complex competitive domain where allowed to virtualize battles against players with a purpose of destroying other enemies units or to generate more self-units to secure an area.\cite{doc5}
+\paragraph*{} 
+Nowadays, there has been an increasing interest in the field of video games. The influence of these video games in our life and culture led the researchers to try to design more realistic games for more entertainment. In the other hand, there is more than one kind of video games, such as chess, go, non-player character (NPC) and first
+person shot (FPS) to mention a few. 
+\paragraph*{} 
+In this study, we interested in a different subgenre of video games called strategy video games. in this kind of games you have to control a set of units distributed on a multidimensional space when contenders have to move in the aim of destroying all the enemies structures in the minimum number of turns or to protect the self-unit till the end without losing the game. those games, by their nature, are real-time games, that mean all players have to act simultaneously without waiting other to move like chess or go. \par 
+Existing research in real-time strategy games (RTS) recognizes the critical role played by computational intelligence in this major. Moreover, inherited by their nature, RTS games are a good tool for testing the different methods and technics of computational by creating new challenges to improve the designing process of this kind of games. In the other side, the contribution of Computational in that genre of games lies in the conception of the agent that will play the game and interact with the human side.
 
-The complex nature of these games makes their conception more challenging because : 
-\begin{itemize}
-  \item Their real-time nature: the player has to move without waiting for other players to act.
-  \item The player has to control a large number of units simultaneously.
-  \item Make a decision under uncertainty: partial observability, time need to move, units need to react, ...etc.
-\end{itemize}
+\paragraph*{}
+this research focuses on one of the RTS games called Planet Wars. In this game, two players will be faced on multiple types of maps in the aim of overwhelmed the opponent or to protect the self-units without losing the game. While Each player can generate multiple attacks against the other contenders including a specific number of troops in several strategies to bit the enemy. Moreover, the players on our case are autonomous agents that will react in a real scenario under this game, those agents named Bot. As we mentioned previously, one of the most challenges in RTS games is the Bot conception. This intelligent agent will act under a computer-based framework against a human player in order to compete it.
 
+\paragraph*{}
+The Bot conception is a major area of interest within the field of computational intelligence in order to design an RTS game. Which, the problem is the real-time aspect related to this type of games. In addition, to control a Planet Wars agent, a set of parameters previously improved will determine the reaction of the Bot under the game. Among all Planet Wars parameters, we have to choose a set of the highly effective ones that will be used by the Bot for best behavior during the game.\par
+This process already an optimization issue, whilst, our work is to improve some parameters predefined by experts in the domain. So, the optimization process will move in three fields: the first step is going by using an algorithm inspired by the immune system of the human body called an Artificial Immune System (AIS). The second step is to run another nature-inspired algorithm named Particle Swarm Optimization (PSO), this algorithm behaves in the same way with nature animals swarms as bird swarms, fish schooling ...etc. The last step is to make a comparison between those two optimization methods and the one used in [1] that implemented the Genetic Algorithm (GA).
 
-Recent development in the field of RTS video games led to making the paradigm of Artificial Intelligence as a key instrument in the designing of the agents(bots), that will react in a real scenario against other players during the game. In addition, the RTS games posing new challenges to AI and it is a wide area to test AI concepts and methodologies.\cite{doc5,doc1,doc2,doc3,doc4}
-
-The bot's design makes a significant challenge to RTS games conception process. A bot is an autonomous agent act with human player in a real scenario under any computer-based framework. \cite{doc4}In the other hand, the huge progress of video games and their international competitions, it's becoming extremely difficult to ignore the existence of human expert players and their experience within the conception of bot's behavior. While, including expert experimentation under conception process will make the bot more challenging and hard to beat that implies more challenging game and more interesting.\cite{doc3}
-
-Google Artificial Intelligence (GAIC) Challenge is one of the international RTS game competition that was sponsored by Google Community in 2010. In this competition, Google chooses planet war as a competitive RTS game. While this paper will study planet war game as a subject. Planet war is an RTS game which simulates battles against autonomous agents under several situations (maps) with the aim of winning the game by owning the maximum number of planets.
-
-
-The bot concept plays a critical role in RTS game progression, designing a challenging bot mean designing a challenging game. In case of planet war, a set of pre-determined parameters need to make the bot under real game. Moreover, the parameters selection will affect the behavior of the bot later, so, good selection process led to the better reaction during the game. In the other hand, the previous parameters it's a large research area that treated as an optimization itself.\cite{doc1}. However, the selection process is trying to find the most important parameters for best bot performance\cite{doc1}.
-
-The specific objective of this study was to design a planet war bot using an Evolutionary Algorithm named Artificial Immune System (AIS) to determine parameters weights (values) by maximizing an objective function based on turns number played by the bot and the number of wins.
-
-The paper has been organized in the following way: First of all, this paper gives a brief description of planet war and all rules applied during the game. In the second section, AIS algorithm was defined. The third chapter concerned with the approach used for this study by defining the global architecture of the bot. In the remaining part, all experimental results are presented.\\
+\paragraph*{}
+This paper begins by describing Planet Wars, the game used in this work and all the rule related to. It will then go on to explain the AIS and POS algorithms and how it works. The third part is about the general based architecture of the bot to move intelligently during the game. The last section tries to define the comparable results between the optimization methods used.
 
 \section{Planet War}
 
@@ -276,8 +270,7 @@ End
 \end{figure}
 
 \subsection{Particle Swarm Optimization}
-Recently, a considerable literature has grown up around the theme of swarm intelligence which plays an important role in addressing the issue of computational systems inspired its techniques from nature collective intelligence such us fish schooling, ants, flocks of birds to mention a few.
-The algorithm run in a multi-dimensional space where all particles try to locate the optimum. By first, a set of a collection will be set to represent whole particles in the swarm randomly positioned in the working space, Each particle can move to find the potential optimum pathway according to the personal position of the particle (Pbest)  and the global position (Gbest) of all the swarm. In addition, another factor will influent this changing in the position, it's velocity. The change in velocity is measured with the equation (2):
+Recently, a considerable literature has grown up around the theme of swarm intelligence which plays an important role in addressing the issue of computational systems inspired its techniques from nature collective intelligence such us fish schooling, ants, flocks of birds to mention a few. The algorithm run in a multi-dimensional space where all particles try to locate the optimum. By first, a set of a collection will be set to represent whole particles in the swarm randomly positioned in the working space, Each particle can move to find the potential optimum pathway according to the personal position of the particle (Pbest)  and the global position (Gbest) of all the swarm. In addition, another factor will influent this changing in the position, it's velocity. The change in velocity is measured with the equation (2):
 
 \begin{equation}
 v_{i}(t+1) = v_{i}(t) + c_{1}r_{1}(p_{i}^{Pbest}-p_{i}(t))  + c_{2}r_{2}(p_{Gbest}-p_{i}(t))
