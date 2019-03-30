@@ -10,10 +10,16 @@
 %\setlength\parindent{24pt}% To increase paragraph indentation when line spacing is doubled
 
 \usepackage{tikz}
+
 \usepackage{pdfpages}
 \usepackage{pgfplots}
 \usepackage{verbatim}
 \usepackage{dirtytalk}
+\usepackage{caption}
+\captionsetup{
+  justification = centering
+}
+
 
 \usepackage[numbers,sort&compress]{natbib}% Citation support using natbib.sty
 \bibpunct[, ]{[}{]}{,}{n}{,}{,}% Citation support using natbib.sty
@@ -73,7 +79,7 @@ this research focuses on one of the RTS games called Planet Wars. In this game, 
 
 \paragraph*{}
 The Bot conception is a major area of interest\cite{doc4} within the field of computational intelligence in order to design an RTS game. Which, the problem is the real-time aspect related to this type of games. In addition, to control a Planet Wars agent, a set of parameters previously improved will determine the reaction of the Bot under the game. Among all Planet Wars parameters, we have to choose a set of the highly effective ones\cite{doc5} that will be used by the Bot for best behavior during the game.\par
-This process already an optimization issue\cite{doc5}, whilst, our work is to improve some parameters predefined by experts in the domain. So, the optimization process will move in three fields: the first step is going by using an algorithm inspired by the immune system of the human body called an Artificial Immune System (AIS). The second step is to run another nature-inspired algorithm named Particle Swarm Optimization (PSO), this algorithm behaves in the same way with nature animals swarms as bird swarms, fish schooling ...etc. The last step is to make a comparison between those two optimization methods and the one used in [1] that implemented the Genetic Algorithm (GA).
+This process already an optimization issue\cite{doc5}, whilst, our work is to improve some parameters predefined by experts in the domain. So, the optimization process will move in three fields: the first step is going by using an algorithm inspired by the immune system of the human body called an Artificial Immune System (AIS). The second step is to run another nature-inspired algorithm named Particle Swarm Optimization (PSO), this algorithm behaves in the same way with nature animals swarms as bird swarms, fish schooling ...etc. The last step is to make a comparison between those two optimization methods and the one used in\cite{doc1} that implemented the Genetic Algorithm (GA).
 
 \paragraph*{}
 This paper begins by describing Planet Wars, the game used in this work and all the rule related to. It will then go on to explain the AIS and POS algorithms and how it works. The third part is about the general based architecture of the bot to move intelligently during the game. The last section tries to define the comparable results between the optimization methods used.
@@ -267,8 +273,8 @@ End
 \caption{The diagram showed the ordered steps for running an AIS algorithm based on clonal selection algorithm (CLONALG) }
 \end{figure}
 
-\subsection{Particle Swarm Optimization}
-Recently, a considerable literature has grown up around the theme of swarm intelligence which plays an important role in addressing the issue of computational systems inspired its techniques from nature collective intelligence such us fish schooling, ants, flocks of birds to mention a few. The algorithm run in a multi-dimensional space where all particles try to locate the optimum. By first, a set of a collection will be set to represent whole particles in the swarm randomly positioned in the working space, Each particle can move to find the potential optimum pathway according to the personal position of the particle (Pbest)  and the global position (Gbest) of all the swarm. In addition, another factor will influent this changing in the position, it's velocity. The change in velocity is measured with the equation (2):
+\section{Particle Swarm Optimization}
+Recently, a considerable literature has grown up around the theme of swarm intelligence which plays an important role in addressing the issue of computational systems inspired its techniques from nature collective\cite{clever} intelligence such us fish schooling, ants, flocks of birds to mention a few. The algorithm run in a multi-dimensional space where all particles try to locate the optimum\cite{clever}. By first, a set of a collection will be set to represent whole particles in the swarm randomly positioned in the working space, Each particle can move to find the potential optimum pathway according to the personal position of the particle (Pbest)  and the global position (Gbest) of all the swarm. In addition, another factor will influent this changing in the position, it's velocity. The change in velocity is measured with the equation (2):
 
 \begin{equation}
 v_{i}(t+1) = v_{i}(t) + c_{1}r_{1}(p_{i}^{Pbest}-p_{i}(t))  + c_{2}r_{2}(p_{Gbest}-p_{i}(t))
@@ -467,7 +473,7 @@ The selection process based on an evaluation technic by implementing tournaments
 The aim of this optimization is to minimize the number of turns needs to win, the best bot is the one that plays fewer turns until win; this kind of ranking bots strongly shown a constraint problem is that each individual was able to win every single game.
 
 \section{Exprementation and results}
-With the aim of testing the CLONALG algorithm, the bot placed under several situations and play several games against the RandomBot. The algorithm parameters can be found on the Table 1:
+In order to improve the parameters used by the bot during the game, a CLONALG and POS algorithms will be running in this purpose and compare them with genetic algorithm results in [1]. The algorithms parameters can be found on the Table 1, Table 2 and Table 3 for CLONALG, POS, and GA respectively:
 \begin{table}[h!]
 \centering
 \begin{tabular}{ |c|c| }
@@ -477,12 +483,43 @@ With the aim of testing the CLONALG algorithm, the bot placed under several situ
  maximun antbodies Cloned & 72 \\ 
  \hline   
 \end{tabular}
+\centering
 \caption{Parameters used in the CLONALG algorithm}
 \label{TABLE 1}
 \end{table}
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|c| }
+\hline
+ Number of particles & 20 \\ 
+ Epochs & 15 \\  
+ Inertia & 0.73 \\
+ Cognitive Component & 2 \\
+ Social Component & 2 \\ 
+ \hline   
+\end{tabular}
+\caption{Parameters used in the POS algorithm}
+\label{TABLE 2}
+\end{table}
 
-To make a bot under a real game scenario with optimized parameters will take hours, since, to evaluate each individual it took more seconds. The figure (5) showed the evaluation of the number of turns plays by the bot until win, and it appears that the number of turns needs to win in five maps decrease. \\
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|c| }
+\hline
+ Number of individuals & 400 \\ 
+ Mutation Probability & 0.02 \\  
+ Crossover probability & 0.6 \\
+ Replacement policy & 2-individuals elitism \\
+ \hline   
+\end{tabular}
+\caption{Parameters used in the GA}
+\label{TABLE 3}
+\end{table}
+
+
+
+The figure(5) represent the different maps played by the initial bot with the primary parameters values in the two optimization methods presented in this study. The blue color shows the AisBot and the black one is for the POSBot before running the two algorithms. While the red and the green ones represent the AisBot and POSBot respectively after the optimization of the parameters. in the other hand, Y-axis proves the number of turns played by each bot till winning the game. \\
 
 \begin{comment}
 \begin{figure}
@@ -545,38 +582,90 @@ To make a bot under a real game scenario with optimized parameters will take hou
     ]
     coordinates{(5,200)(10,171)(20,200)(50,65)(100,123)};
     
+    \addplot[
+    color=black,
+    mark=square,
+    ]
+    coordinates{(5,151)(10,156)(20,115)(50,58)(100,72)};
     
-    \legend{Befor, After}
+    \addplot[
+    color=green,
+    mark=square,
+    ]
+    coordinates{(5,97)(10,102)(20,87)(50,36)(100,40)};
+    
+    
+    \legend{AIS Befor, AIS After, POS Befor, POS After}
  
 \end{axis}
 \end{tikzpicture}
 \end{center}
-\caption{The evaluation of the turns number needed to win around multiple maps between initial bot and optimized bot}
+\caption{The evaluation of the turns number needed to win around multiple maps between initial bot and optimized one using the AIS and POS algorithms}
 \end{figure}
 
 
+Table 4 describes the initial parameters used by the bot in the several methods where the colonies have multiple strategies to send a Tith to the base planet according to the optimization algorithms; (0.78) as a high value used by the AISBot with a medium percentage to send starships to help the base. The GABot have a probability around (0.5) and to send a fewer number of starships which can be explained that each colony tries to protect itself. For the POSBot we can see that the colonies have no high interest to help the base (0.19). On the other hand, the planet in all bots have a high probability to perform an attack (0.82, 0.96, 0.9) for AIS POS and GA respectively with the minimum number of troops expect the GA with (50\%). Based on this, in each attack, the planet can send an extra number of the starships to defeat the enemy and that not interesting for the AISBot and GABot with (0.12, 0.25), while the POSBot have a high percentage for this (0.78). Finally, to determine a target, the bot based on three parameters distance, growth rate and the number of starships where all bots have a high probability for the distance and growth rate factors; while the AISBot have a less interest about the number of starships (1\%).\\
 
-Figure (6) and figure (7) describes the evaluated results improved by the optimization process where the colonies have a high probability to send Tith to the base (0.61) by sending a fewer hosted starships which can be explained that the colonies have to deserve there starships to defend it-selves in an emergency. On the other hand, the probability for a planet to perform an attack against other ones is around (0.42) and the proportion of sending troops is elevated (50\%) when there is an attack action. Based on this, when a planet performs an attack, the base also can send a high extra starships number for the attack around 43\%. Finally, when the bot trying to determine the target planet to perform the attack, the most important weights based on is the number of starships hosted on the target and the growth rate related to it, the distance has a less priority in this process. \\
+Table(5) describe the parameters values after the optimization in different methods. As we can see the POSBot increase the probability of each colony to send a reinforcement for the base planet (0.95) with a high number of troops. For the support probabilities, all the bot decrease the huge amount for performing an attack with (72\%) for POSBot instead of (96\%). On the other side, all of the bots have a high interest to send extra starships in battles with the base (43\%) for AISBot, (64\%) for the POSBot and (72\%) for the GABot. By the end, for the determination of the target planet, the AISBot take the number of starships as the effective factor(0.81) and decrease both the distance and the growth rate (0.26, 0.6)  as well as the POSBot where take the number of starships as the highly effective factor(0.89). In the other side, the GABot decide to select the distance as the first factor that will be based on to determine their targets(84\%).
 
-\begin{comment}
-\begin{table*}
+\begin{table}
 \centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline
- & $Tith_perc$ & $Tith_prob$ & $W_NS$ & $W_GR$ & $W_DIS$ & $Pool_perc$ & $Support_perc$ & $Support_prob$ \\ 
+ Parameter & AIS & POS & GA \\ 
  \hline
- Before & 0.959 & 0.651 & 0.665 & 0.122 & 0.785 & 0.113 & 0.64 & 0.366 \\  
+ $Tith_{perc}$ & 0.505 & 0.606 & 0.1\\  
  \hline
- After & 0.057 & 0.845 & 0.447 & 0.323 & 0.124 & 0.814 & 0.636 & 0.32 \\
+ $Tith_{prob}$ & 0.778 & 0.192 & 0.5\\
+ \hline
+ $W_{NS}$ & 0.1 & 0.493 & 1\\
+ \hline
+ $W_{GR}$ & 0.933 & 0.554 & 1\\
+ \hline
+ $W_{DIS}$ & 0.562 & 0.835 & 1\\
+ \hline
+ $Pool_{perc}$ & 0.12 & 0.782 & 0.25\\
+ \hline
+ $Support_{perc}$ & 0.07 & 0.281 & 0.5\\
+ \hline
+ $Support_{prob}$ & 0.829 & 0.966 & 0.9\\
  \hline  
 \end{tabular}
-\caption{Parameters used in the CLONALG algorithm}
-\label{TABLE 2}
-\end{table*}
-\end{comment}
+\caption{Parameters used by the initial bot befor runing the different optimization algorithms}
+\label{TABLE 4}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+ Parameter & AIS & POS & GA \\ 
+ \hline
+ $T_{perc}$ & 0.24 & 0.575 & 0.294\\  
+ \hline
+ $T_{prob}$ & 0.611 & 0.959 & 0.0389\\
+ \hline
+ $W_{NS}$ & 0.819 & 0.899 & 0.316\\
+ \hline
+ $W_{GR}$ & 0.6 & 0.159 & 0.316\\
+ \hline
+ $W_{DIS}$ & 0.262 & 0.478 & 0.844\\
+ \hline
+ $P_{perc}$ & 0.436 & 0.64 & 0.727\\
+ \hline
+ $S_{perc}$ & 0.504 & 0.015 & 0.822\\
+ \hline
+ $S_{prob}$ & 0.424 & 0.721 & 0.579\\
+ \hline  
+ %0.24,0.611,0.819,0.6,0.262,0.436,0.504,0.424
+\end{tabular}
+\caption{Parameters used by the optimized bot after the runing of the algorithms}
+\label{TABLE 4}
+\end{table}
+
 
 %0.505,0.778,0.1,0.933,0.562,0.12,0.075,0.829
-
+\begin{comment}
 \begin{figure}
 \begin{center}
 \begin{tikzpicture}[font=\small]
@@ -600,9 +689,10 @@ Figure (6) and figure (7) describes the evaluated results improved by the optimi
 \end{center}
 \caption{The parameters values setting for the inital bot}
 \end{figure}
-
+\end{comment}
 %0.24,0.611,0.819,0.6,0.262,0.436,0.504,0.424
 
+\begin{comment}
 \begin{figure}
 \begin{center}
 \begin{tikzpicture}[font=\small]
@@ -626,29 +716,11 @@ Figure (6) and figure (7) describes the evaluated results improved by the optimi
 \end{center}
 \caption{The parameters values setting for the optimized bot}
 \end{figure}
-
-\begin{comment}
-\begin{table*}
-\centering
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
- Maps & 5 & 10 & 20 & 50 & 100 \\ 
- \hline
- Before & 135 & 128 & 161 & 102 & 144 \\  
- \hline
- After & 98 & 80 & 70 & 72 & 87 \\
- \hline  
-\end{tabular}
-\caption{results after 5 games of our AisBot with random parameters and after the optimization against the RandomBot}
-\label{TABLE 3}
-\end{table*}
 \end{comment}
-
-In general, the optimised AisBot is able to defeat the DualBot in all situations with a minimum number of turns, this can demonstrate that the application of an Evolutionary Algorithm reach some hight capabilities in optimization behaviour even a parametrize behaviour as the one used on the AisBot. There are a lot of challenges can explore all the capabilities of AIS algorithms in the design of the bot's behaviour can offer.
 
 
 \section{conclusions}
-The planet wars game it was classified as an RTS game, where the player (bots) fight against others in real-time. The main aim of this study is to investigate the application of the Evolutionary Algorithms (EAs) and the better results can be obtained in real-world problems, by tunning real game scenarios that used a parametrise behaviour of a bot tuning by an AIS Algorithm. This problem showed that the EAs can improve the evaluation of a hand-coded bot by defeating multiple opponents in different situations in fewer turns. In the other hand, the high capabilities of an evolutionary approach can be improved at least in this type of problems.
+The conception of intelligent agents is the hardest task in the RTS games accordingly to the real-time aspect. This study aims to contribute to this growing area of research by exploring three different optimization methods to investigate the performance of the evolutionary algorithm under real problems. The optimization methods proceed in a parametrize space area in order to improve the general behavior of the agents. However, the investigation of the results showed the top hand of the EAs agents against the hand-coded ones, when the EAs bots can defeat all enemies in different situations using multiple improving algorithms in the less number of turns.
 
 \bibliography{references}
 
